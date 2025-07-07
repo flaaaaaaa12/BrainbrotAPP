@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Brainbrot</title>
+  </head>
+  <body>
+  <h1>TikTok OAuth Callback</h1>
+  <p id="output">Chargement des paramètres...</p>
+
+  <script>
+    // Analyse les paramètres dans l’URL
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    const state = params.get("state");
+
+    // Affiche dans la page
+    document.getElementById("output").innerHTML = `
+      <strong>Code :</strong> ${code}<br>
+      <strong>State :</strong> ${state}
+    `;
+
+    // Tu peux aussi les envoyer vers ton serveur via fetch()
+    // fetch("/save_code", { method: "POST", body: JSON.stringify({ code, state }) })
+  </script>
+</body>
+</html>
